@@ -16,9 +16,16 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::resource('posts', PostController::class)->only([
-    'destroy', 'show', 'store', 'update'
- ]);
+// Route::resource('posts', PostController::class)->only([
+//     'show', 'store', 'getAll','getById','update','delete'
+// ]);
+
+Route::get('/posts', [PostController::class, 'getAll']);
+Route::get('/posts/{id}', [PostController::class,  'getById']);
+Route::post('/posts', [PostController::class,  'store']);
+Route::put('/posts/{id}', [PostController::class,  'update']);
+Route::delete('/posts/{id}', [PostController::class, 'delete']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post/{slug}', [PostController::class, 'show']);
+// Route::get('/posts', [PostController::class, 'getAll']);
